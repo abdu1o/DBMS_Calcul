@@ -1,4 +1,6 @@
-﻿namespace DBMS_Calcul
+﻿using System.Drawing;
+
+namespace DBMS_Calcul
 {
     partial class SysClacul
     {
@@ -237,8 +239,10 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(431, 604);
+            this.MaximumSize = new System.Drawing.Size(431, 604);
             this.Name = "SysClacul";
             this.Text = "DBMS Calculator";
             this.panel1.ResumeLayout(false);
