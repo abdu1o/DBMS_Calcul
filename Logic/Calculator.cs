@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace DBMS_Calcul.Converter
 {
@@ -21,7 +22,6 @@ namespace DBMS_Calcul.Converter
             }
         }
 
-
         static int EvaluateExpression(string expression)
         {
             System.Data.DataTable table = new System.Data.DataTable();
@@ -34,5 +34,44 @@ namespace DBMS_Calcul.Converter
 
             return result;
         }
+
+        public string ChangeText(int num_syst, RichTextBox richTextBox1)
+        {
+            string newText = "";
+
+            Dictionary<int, string> validChars = new Dictionary<int, string>
+            {
+                { 10, "0123456789+-*/() " },
+                { 2, "01+-*/() " },
+                { 3, "012+-*/() " },
+                { 8, "01234567+-*/() " },
+                { 16, "0123456789abcdef+-*/() " }
+
+            };
+
+            if (validChars.ContainsKey(num_syst))
+            {
+                string allowedChars = validChars[num_syst];
+                foreach (char c in richTextBox1.Text)
+                {
+                    if (allowedChars.Contains(c))
+                    {
+                        newText += c;
+                    }
+                    else
+                    {
+                        newText += '0';
+                    }
+                }
+            }
+            else
+            {
+                newText = richTextBox1.Text; 
+            }
+
+            return newText;
+        }
+
+
     }
 }

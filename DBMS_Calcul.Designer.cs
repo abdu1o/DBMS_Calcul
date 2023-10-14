@@ -45,6 +45,7 @@ namespace DBMS_Calcul
             this.ternary_r = new System.Windows.Forms.RadioButton();
             this.octal_r = new System.Windows.Forms.RadioButton();
             this.hexadecimal_r = new System.Windows.Forms.RadioButton();
+            this.decimal_r = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -97,7 +98,7 @@ namespace DBMS_Calcul
             this.panel1.Controls.Add(this.Octal);
             this.panel1.Location = new System.Drawing.Point(-3, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(422, 59);
+            this.panel1.Size = new System.Drawing.Size(450, 59);
             this.panel1.TabIndex = 3;
             // 
             // Ternary
@@ -120,7 +121,7 @@ namespace DBMS_Calcul
             this.Run.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.Run.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Run.FlatAppearance.BorderSize = 0;
-            this.Run.Location = new System.Drawing.Point(370, 12);
+            this.Run.Location = new System.Drawing.Point(405, 12);
             this.Run.Margin = new System.Windows.Forms.Padding(0);
             this.Run.Name = "Run";
             this.Run.Size = new System.Drawing.Size(33, 33);
@@ -133,9 +134,9 @@ namespace DBMS_Calcul
             this.richTextBox1.BackColor = System.Drawing.Color.Black;
             this.richTextBox1.Font = new System.Drawing.Font("Leelawadee", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.richTextBox1.ForeColor = System.Drawing.SystemColors.Window;
-            this.richTextBox1.Location = new System.Drawing.Point(-3, 103);
+            this.richTextBox1.Location = new System.Drawing.Point(12, 103);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(422, 255);
+            this.richTextBox1.Size = new System.Drawing.Size(420, 255);
             this.richTextBox1.TabIndex = 4;
             this.richTextBox1.Text = "";
             this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
@@ -145,10 +146,10 @@ namespace DBMS_Calcul
             this.textBox1.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.ForeColor = System.Drawing.SystemColors.Info;
-            this.textBox1.Location = new System.Drawing.Point(-3, 408);
+            this.textBox1.Location = new System.Drawing.Point(12, 408);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(422, 145);
+            this.textBox1.Size = new System.Drawing.Size(420, 145);
             this.textBox1.TabIndex = 6;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -179,7 +180,7 @@ namespace DBMS_Calcul
             // binary_r
             // 
             this.binary_r.AutoSize = true;
-            this.binary_r.Location = new System.Drawing.Point(130, 83);
+            this.binary_r.Location = new System.Drawing.Point(161, 83);
             this.binary_r.Name = "binary_r";
             this.binary_r.Size = new System.Drawing.Size(54, 17);
             this.binary_r.TabIndex = 13;
@@ -191,7 +192,7 @@ namespace DBMS_Calcul
             // ternary_r
             // 
             this.ternary_r.AutoSize = true;
-            this.ternary_r.Location = new System.Drawing.Point(190, 83);
+            this.ternary_r.Location = new System.Drawing.Point(221, 83);
             this.ternary_r.Name = "ternary_r";
             this.ternary_r.Size = new System.Drawing.Size(61, 17);
             this.ternary_r.TabIndex = 14;
@@ -203,7 +204,7 @@ namespace DBMS_Calcul
             // octal_r
             // 
             this.octal_r.AutoSize = true;
-            this.octal_r.Location = new System.Drawing.Point(257, 83);
+            this.octal_r.Location = new System.Drawing.Point(288, 83);
             this.octal_r.Name = "octal_r";
             this.octal_r.Size = new System.Drawing.Size(50, 17);
             this.octal_r.TabIndex = 15;
@@ -215,7 +216,7 @@ namespace DBMS_Calcul
             // hexadecimal_r
             // 
             this.hexadecimal_r.AutoSize = true;
-            this.hexadecimal_r.Location = new System.Drawing.Point(313, 83);
+            this.hexadecimal_r.Location = new System.Drawing.Point(346, 83);
             this.hexadecimal_r.Name = "hexadecimal_r";
             this.hexadecimal_r.Size = new System.Drawing.Size(86, 17);
             this.hexadecimal_r.TabIndex = 16;
@@ -224,12 +225,25 @@ namespace DBMS_Calcul
             this.hexadecimal_r.UseVisualStyleBackColor = true;
             this.hexadecimal_r.CheckedChanged += new System.EventHandler(this.hexadecimal_r_CheckedChanged);
             // 
+            // decimal_r
+            // 
+            this.decimal_r.AutoSize = true;
+            this.decimal_r.Location = new System.Drawing.Point(92, 83);
+            this.decimal_r.Name = "decimal_r";
+            this.decimal_r.Size = new System.Drawing.Size(63, 17);
+            this.decimal_r.TabIndex = 17;
+            this.decimal_r.TabStop = true;
+            this.decimal_r.Text = "Decimal";
+            this.decimal_r.UseVisualStyleBackColor = true;
+            this.decimal_r.CheckedChanged += new System.EventHandler(this.decimal_r_CheckedChanged);
+            // 
             // SysClacul
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ClientSize = new System.Drawing.Size(415, 565);
+            this.ClientSize = new System.Drawing.Size(444, 565);
+            this.Controls.Add(this.decimal_r);
             this.Controls.Add(this.hexadecimal_r);
             this.Controls.Add(this.octal_r);
             this.Controls.Add(this.ternary_r);
@@ -241,8 +255,8 @@ namespace DBMS_Calcul
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(431, 604);
-            this.MaximumSize = new System.Drawing.Size(431, 604);
+            this.MaximumSize = new System.Drawing.Size(460, 604);
+            this.MinimumSize = new System.Drawing.Size(460, 604);
             this.Name = "SysClacul";
             this.Text = "DBMS Calculator";
             this.panel1.ResumeLayout(false);
@@ -267,6 +281,7 @@ namespace DBMS_Calcul
         private System.Windows.Forms.RadioButton ternary_r;
         private System.Windows.Forms.RadioButton octal_r;
         private System.Windows.Forms.RadioButton hexadecimal_r;
+        private System.Windows.Forms.RadioButton decimal_r;
     }
 }
 

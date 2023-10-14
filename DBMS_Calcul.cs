@@ -19,16 +19,20 @@ namespace DBMS_Calcul
         private TernaryConverter converter = new TernaryConverter();
 
         private int num_syst;
-        private bool isTernary = false;
 
         public SysClacul()
         {
             InitializeComponent();
+            decimal_r.Checked = true;
         }
 
         //Binary
         private void button1_Click(object sender, EventArgs e)
         {
+            //if(num_syst == 2)
+            //{
+
+            //}
             string input = richTextBox1.Text;
             int result = calculator.SetExpression(input);
 
@@ -83,14 +87,63 @@ namespace DBMS_Calcul
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
+            richTextBox1.Text = calculator.ChangeText(num_syst, richTextBox1); ;
+            richTextBox1.SelectionStart = richTextBox1.Text.Length;
+
             string text = richTextBox1.Text;
             expression.Add(text);
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void decimal_r_CheckedChanged(object sender, EventArgs e)
         {
-
+            UpdateNumSystem();
         }
+
+        private void binary_r_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateNumSystem();
+        }
+
+        private void ternary_r_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateNumSystem();
+        }
+
+        private void octal_r_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateNumSystem();
+        }
+
+        private void hexadecimal_r_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateNumSystem();
+        }
+
+        private void UpdateNumSystem()
+        {
+            if(decimal_r.Checked)
+            {
+                num_syst = 10;
+            }
+            else if (binary_r.Checked)
+            {
+                num_syst = 2;
+            }
+            else if (ternary_r.Checked)
+            {
+                num_syst = 3;
+            }
+            else if (octal_r.Checked)
+            {
+                num_syst = 8;
+            }
+            else if (hexadecimal_r.Checked)
+            {
+                num_syst = 16;
+            }
+        }
+
+
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -102,40 +155,9 @@ namespace DBMS_Calcul
 
         }
 
-        private void binary_r_CheckedChanged(object sender, EventArgs e)
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            if (binary_r.Checked)
-            {
-                num_syst = 2;
-                isTernary = false;
-            }
-        }
 
-        private void ternary_r_CheckedChanged(object sender, EventArgs e)
-        {
-            if (ternary_r.Checked)
-            {
-                num_syst = 0;
-                isTernary = true;
-            }
-        }
-
-        private void octal_r_CheckedChanged(object sender, EventArgs e)
-        {
-            if (octal_r.Checked)
-            {
-                num_syst = 8;
-                isTernary = false;
-            }
-        }
-
-        private void hexadecimal_r_CheckedChanged(object sender, EventArgs e)
-        {
-            if (hexadecimal_r.Checked)
-            {
-                num_syst = 16;
-                isTernary = false;
-            }
         }
 
         

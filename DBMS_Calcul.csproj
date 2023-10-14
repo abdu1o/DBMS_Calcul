@@ -54,6 +54,7 @@
     <Compile Include="DBMS_Calcul.Designer.cs">
       <DependentUpon>DBMS_Calcul.cs</DependentUpon>
     </Compile>
+    <Compile Include="Logic\ToDecimal.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="DBMS_Calcul.resx">
