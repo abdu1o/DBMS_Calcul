@@ -48,16 +48,16 @@
   <ItemGroup>
     <Compile Include="Logic\Calculator.cs" />
     <Compile Include="Logic\Converter.cs" />
-    <Compile Include="DBMS_Calcul.cs">
+    <Compile Include="Main\DBMS_Calcul.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DBMS_Calcul.Designer.cs">
+    <Compile Include="Main\DBMS_Calcul.Designer.cs">
       <DependentUpon>DBMS_Calcul.cs</DependentUpon>
     </Compile>
     <Compile Include="Logic\ToDecimal.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Main\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="DBMS_Calcul.resx">
+    <EmbeddedResource Include="Main\DBMS_Calcul.resx">
       <DependentUpon>DBMS_Calcul.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
