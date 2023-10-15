@@ -45,13 +45,14 @@ namespace DBMS_Calcul.Converter
                 { 2, "01+-*/() " },
                 { 3, "012+-*/() " },
                 { 8, "01234567+-*/() " },
-                { 16, "0123456789abcdef+-*/() " }
+                { 16, "0123456789abcdefABCDEF+-*/() " }
 
             };
 
             if (validChars.ContainsKey(num_syst))
             {
                 string allowedChars = validChars[num_syst];
+
                 foreach (char c in richTextBox1.Text)
                 {
                     if (allowedChars.Contains(c))

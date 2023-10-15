@@ -1,10 +1,12 @@
 ﻿using DBMS_Calcul.Converter;
+using DBMS_Calcul.Logic;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,7 +18,8 @@ namespace DBMS_Calcul
     {
         private List<string> expression = new List<string>();
         private Calculator calculator = new Calculator();
-        private TernaryConverter converter = new TernaryConverter();
+        private _Converter converter = new _Converter();
+        private ToDecimal ToDecimal = new ToDecimal();
 
         private int num_syst;
 
@@ -29,60 +32,308 @@ namespace DBMS_Calcul
         //Binary
         private void button1_Click(object sender, EventArgs e)
         {
-            //if(num_syst == 2)
-            //{
-
-            //}
             string input = richTextBox1.Text;
-            int result = calculator.SetExpression(input);
 
-            string str_result = Convert.ToString(result);
-            str_result = Convert.ToString(result, 2);
+            switch (num_syst)
+            {
+                case 10:
+                {
+                    int result = calculator.SetExpression(input);
+                    string str_result = Convert.ToString(result, 2);
 
-            textBox1.Text = str_result;
+                    textBox1.Text = str_result;
+
+                    break;
+                }
+
+                case 2:
+                {
+                    string exprassion = converter.BinaryExpressionToDecimal(input);
+                    int result = calculator.SetExpression(exprassion);
+                    string str_result = Convert.ToString(result, 2);
+
+                    textBox1.Text = str_result;
+
+                    break;
+                }
+
+                case 3:
+                {
+                    string exprassion = converter.TernaryExpressionToDecimal(input);
+                    int result = calculator.SetExpression(exprassion);
+                    string str_result = Convert.ToString(result, 2);
+
+                    textBox1.Text = str_result;
+
+                    break;
+                }
+
+                case 8:
+                {
+                    string exprassion = converter.OctalExpressionToDecimal(input);
+                    int result = calculator.SetExpression(exprassion);
+                    string str_result = Convert.ToString(result, 2);
+
+                    textBox1.Text = str_result;
+
+                    break;
+                }
+
+                case 16:
+                {
+                    string exprassion = converter.HexadecimalExpressionToDecimal(input);
+                    int result = calculator.SetExpression(exprassion);
+                    string str_result = Convert.ToString(result, 2);
+
+                    textBox1.Text = str_result;
+
+                    break;
+                }
+            }
         }
 
         //Ternary
         private void Ternary_Click(object sender, EventArgs e)
         {
             string input = richTextBox1.Text;
-            int result = calculator.SetExpression(input);
 
-            string str_result = converter.ConvertToBase3(result);
+            switch (num_syst)
+            {
+                case 10:
+                {
+                    int result = calculator.SetExpression(input);
+                    string str_result = converter.ConvertToBase3(result);
 
-            textBox1.Text = str_result;
+                    textBox1.Text = str_result;
+
+                    break;
+                }
+
+                case 2:
+                {
+                    string exprassion = converter.BinaryExpressionToDecimal(input);
+                    int result = calculator.SetExpression(exprassion);
+                    string str_result = converter.ConvertToBase3(result);
+
+                    textBox1.Text = str_result;
+
+                    break;
+                }
+
+                case 3:
+                {
+                    string exprassion = converter.TernaryExpressionToDecimal(input);
+                    int result = calculator.SetExpression(exprassion);
+                    string str_result = converter.ConvertToBase3(result);
+
+                    textBox1.Text = str_result;
+
+                    break;
+                }
+
+                case 8:
+                {
+                    string exprassion = converter.OctalExpressionToDecimal(input);
+                    int result = calculator.SetExpression(exprassion);
+                    string str_result = converter.ConvertToBase3(result);
+
+                    textBox1.Text = str_result;
+
+                    break;
+                }
+
+                case 16:
+                {
+                    string exprassion = converter.HexadecimalExpressionToDecimal(input);
+                    int result = calculator.SetExpression(exprassion);
+                    string str_result = converter.ConvertToBase3(result);
+
+                    textBox1.Text = str_result;
+
+                    break;
+                }
+            }
         }
 
         //Octal
         private void button1_Click_1(object sender, EventArgs e)
         {
             string input = richTextBox1.Text;
-            int result = calculator.SetExpression(input);
 
-            string str_result = Convert.ToString(result);
-            str_result = Convert.ToString(result, 8);
+            switch (num_syst)
+            {
+                case 10:
+                {
+                    int result = calculator.SetExpression(input);
+                    string str_result = Convert.ToString(result, 8);
 
-            textBox1.Text = str_result;
+                    textBox1.Text = str_result;
+
+                    break;
+                }
+
+                case 2:
+                {
+                    string exprassion = converter.BinaryExpressionToDecimal(input);
+                    int result = calculator.SetExpression(exprassion);
+                    string str_result = Convert.ToString(result, 8);
+
+                    textBox1.Text = str_result;
+
+                    break;
+                }
+
+                case 3:
+                {
+                    string exprassion = converter.TernaryExpressionToDecimal(input);
+                    int result = calculator.SetExpression(exprassion);
+                    string str_result = Convert.ToString(result, 8);
+
+                    textBox1.Text = str_result;
+
+                    break;
+                }
+
+                case 8:
+                {
+                    string exprassion = converter.OctalExpressionToDecimal(input);
+                    int result = calculator.SetExpression(exprassion);
+                    string str_result = Convert.ToString(result, 8);
+
+                    textBox1.Text = str_result;
+
+                    break;
+                }
+
+                case 16:
+                {
+                    string exprassion = converter.HexadecimalExpressionToDecimal(input);
+                    int result = calculator.SetExpression(exprassion);
+                    string str_result = Convert.ToString(result, 8);
+
+                    textBox1.Text = str_result;
+
+                    break;
+                }
+            }
         }
 
         //Hexadecimal
         private void Hexadecimal_Click(object sender, EventArgs e)
         {
             string input = richTextBox1.Text;
-            int result = calculator.SetExpression(input);
 
-            string str_result = Convert.ToString(result);
-            str_result = Convert.ToString(result, 16);
+            switch (num_syst)
+            {
+                case 10:
+                {
+                    int result = calculator.SetExpression(input);
+                    string str_result = Convert.ToString(result, 16);
 
-            textBox1.Text = str_result;
+                    textBox1.Text = str_result;
+
+                    break;
+                }
+
+                case 2:
+                {
+                    string exprassion = converter.BinaryExpressionToDecimal(input);
+                    int result = calculator.SetExpression(exprassion);
+                    string str_result = Convert.ToString(result, 16);
+
+                    textBox1.Text = str_result;
+
+                    break;
+                }
+
+                case 3:
+                {
+                    string exprassion = converter.TernaryExpressionToDecimal(input);
+                    int result = calculator.SetExpression(exprassion);
+                    string str_result = Convert.ToString(result, 16);
+
+                    textBox1.Text = str_result;
+
+                    break;
+                }
+
+                case 8:
+                {
+                    string exprassion = converter.OctalExpressionToDecimal(input);
+                    int result = calculator.SetExpression(exprassion);
+                    string str_result = Convert.ToString(result, 16);
+
+                    textBox1.Text = str_result;
+
+                    break;
+                }
+
+                case 16:
+                {
+                    string exprassion = converter.HexadecimalExpressionToDecimal(input);
+                    int result = calculator.SetExpression(exprassion);
+                    string str_result = Convert.ToString(result, 16);
+
+                    textBox1.Text = str_result;
+
+                    break;
+                }
+            }
         }
 
         private void Run_Click(object sender, EventArgs e)
         {
             string input = richTextBox1.Text;
-            double result = calculator.SetExpression(input);
 
-            textBox1.Text = result.ToString();
+            switch (num_syst)
+            {
+                case 10:
+                {
+                    int result = calculator.SetExpression(input);
+                    textBox1.Text = result.ToString();
+
+                    break;
+                }
+                case 2:
+                {
+                    string exprassion = converter.BinaryExpressionToDecimal(input);
+                    int result = calculator.SetExpression(exprassion);
+                    textBox1.Text = result.ToString();
+
+                    break;
+                }
+
+                case 3:
+                {
+                    string exprassion = converter.TernaryExpressionToDecimal(input);
+                    int result = calculator.SetExpression(exprassion);
+                    textBox1.Text = result.ToString();
+
+                    break;
+                }
+
+                case 8:
+                {
+                    string exprassion = converter.OctalExpressionToDecimal(input);
+                    int result = calculator.SetExpression(exprassion);
+                    textBox1.Text = result.ToString();
+                    
+                    break;
+                }
+
+                case 16:
+                {
+                    string exprassion = converter.HexadecimalExpressionToDecimal(input);
+                    int result = calculator.SetExpression(exprassion);
+                    textBox1.Text = result.ToString();
+
+                    break;
+                }
+
+
+            }
+                
+            
         }
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)
